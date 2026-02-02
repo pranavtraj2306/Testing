@@ -6,6 +6,8 @@
   <style>
     body {
       height: 100vh;
+      margin: 0;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -15,19 +17,27 @@
 
     .card {
       background: white;
-      padding: 40px;
-      border-radius: 20px;
+      padding: 40px 30px;
+      border-radius: 25px;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      max-width: 350px;
+      z-index: 2;
     }
 
     h1 {
       color: #ff4d6d;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 25px;
     }
 
     button {
-      padding: 12px 25px;
+      padding: 12px 28px;
       font-size: 18px;
       border: none;
       border-radius: 30px;
@@ -38,25 +48,53 @@
     #yes {
       background-color: #ff4d6d;
       color: white;
-      margin-right: 20px;
+      margin-right: 15px;
     }
 
     #no {
-      background-color: #ccc;
+      background-color: #ddd;
       color: black;
       position: absolute;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="card">
+    <h1>Hey You 💕</h1>
+    <p>
+      Life is better with you in it.<br>
+      Laughter, chaos, comfort — all of it.<br><br>
+      So I have just one important question 👀
+    </p>
     <h1>Will you be my Valentine? 💖</h1>
+
     <button id="yes" onclick="goYes()">Yes 💘</button>
     <button id="no">No 😢</button>
   </div>
 
   <script>
+    // NO button runs away
     const noBtn = document.getElementById("no");
 
     noBtn.addEventListener("mouseover", () => {
@@ -70,6 +108,18 @@
     function goYes() {
       window.location.href = "yes.html";
     }
+
+    // Floating hearts generator
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
   </script>
 
 </body>
