@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>You Said YES 💕</title>
+  <title>You Said Yes ❤️</title>
   <style>
     body {
       height: 100vh;
@@ -11,16 +11,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
       font-family: 'Arial', sans-serif;
     }
 
     .container {
-      text-align: center;
       background: white;
-      padding: 40px 30px;
-      border-radius: 25px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      padding: 45px 35px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
       max-width: 380px;
       z-index: 2;
     }
@@ -28,26 +28,36 @@
     h1 {
       color: #ff4d6d;
       margin-bottom: 15px;
+      font-size: 28px;
     }
 
     p {
       color: #555;
       font-size: 16px;
-      margin-bottom: 20px;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
 
     img {
-      width: 300px;
-      border-radius: 15px;
-      margin-bottom: 15px;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 18px;
+      margin: 20px 0;
     }
 
+    .signature {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #ff4d6d;
+    }
+
+    /* Floating hearts */
     .heart {
       position: absolute;
       bottom: -20px;
       font-size: 22px;
       animation: floatUp 5s linear infinite;
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
     @keyframes floatUp {
@@ -65,33 +75,43 @@
 <body>
 
   <div class="container">
-    <h1>You said YES 💖</h1>
-    <p>
-      I knew it 😌<br>
-      Just like Jim chose Pam,<br>
-      I choose you — today and always.
-    </p>
-
-    <img src="https://media.giphy.com/media/12XMGIWtrHBl5e/giphy.gif" alt="Jim and Pam Love">
+    <h1>You said YES ❤️</h1>
 
     <p>
-      Happy Valentine’s Day ❤️<br>
-      You make my world warmer.
+      And just like that,<br>
+      my heart smiled a little more today.
     </p>
+
+    <img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif" alt="Love GIF">
+
+    <p>
+      Thank you for choosing me.<br>
+      For the laughs, the comfort,<br>
+      and all the little moments we’ll share.
+    </p>
+
+    <p>
+      Happy Valentine’s Day 💕<br>
+      I’m really glad it’s you.
+    </p>
+
+    <div class="signature">
+      ❤️
+    </div>
   </div>
 
   <script>
-    // Floating hearts
+    // Floating hearts animation
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
-      heart.innerText = "💖";
+      heart.innerText = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.animationDuration = (3 + Math.random() * 3) + "s";
       document.body.appendChild(heart);
 
       setTimeout(() => heart.remove(), 6000);
-    }, 350);
+    }, 300);
   </script>
 
 </body>
